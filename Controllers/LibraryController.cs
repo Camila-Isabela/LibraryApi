@@ -44,19 +44,12 @@ public class LibraryController(ILibraryService libraryService) :ControllerBase
     }
 
     [HttpPut("{id}")]
-    public async Task<IActionResult> UpdateBook(int id, [FromBody] Book book)
+    public async Task<IActionResult> UpdateBook(int id, [FromBody] UpdateBookDto bookDto)
     {
-        if(book == null || id != book.Id)
-        {
-            return BadRequest("Dados inválidos ou inconsistentes");
-        }
-
-        var updatedBook = await _libraryService.UpdateBook(book);
-
+        var updatedBook = await _libraryService.UpdateBook(id, bookDto);
         if(updatedBook == null)
-        {
             return NotFound();
-        }
+
         return Ok(updatedBook);
     }
 

@@ -6,10 +6,10 @@ public class LibraryService :ILibraryService
 {
     private readonly List<Book> _books =
     [
-        new Book { Id = 1, Title = "1984", Author = "George Orwell", Genre = "Dystopian", PublishedDate = new DateTime(1949, 6, 8), IsAvailable = true },
-        new Book { Id = 2, Title = "To Kill a Mockingbird", Author = "Harper Lee", Genre = "Fiction", PublishedDate = new DateTime(1960, 7, 11), IsAvailable = true },
-        new Book { Id = 3, Title = "The Great Gatsby", Author = "F. Scott Fitzgerald", Genre = "Fiction", PublishedDate = new DateTime(1925, 4, 10), IsAvailable = false },
-        new Book { Id = 4, Title = "Harry Potter and the Philosopher's Stone", Author = "J.K. Rowling", Genre = "Fantasy", PublishedDate = new DateTime(1997, 6, 26), IsAvailable = true },
+        new Book { Id = 1, Title = "1984", Author = "George Orwell", Genre = "Dystopian", Price = 132, QuantityInStock = 324 },
+        new Book { Id = 2, Title = "To Kill a Mockingbird", Author = "Harper Lee", Genre = "Fiction", Price = 84, QuantityInStock = 148 },
+        new Book { Id = 3, Title = "The Great Gatsby", Author = "F. Scott Fitzgerald", Genre = "Fiction", Price = 98, QuantityInStock = 235 },
+        new Book { Id = 4, Title = "Harry Potter and the Philosopher's Stone", Author = "J.K. Rowling", Genre = "Fantasy", Price = 345, QuantityInStock = 18 },
     ];
 
 
@@ -31,20 +31,27 @@ public class LibraryService :ILibraryService
         await Task.CompletedTask;
     }
 
-    public async Task<Book?> UpdateBook(Book book)
+    public async Task<Book?> UpdateBook(int id, UpdateBookDto updateBookDto)
     {
-        var existingBook = _books.FirstOrDefault(b => b.Id == book.Id);
+        var existingBook = _books.FirstOrDefault(b => b.Id == id);
 
         if(existingBook == null)
-        {
             return null;
-        }
 
-        existingBook.Title = book.Title;
-        existingBook.Author = book.Author;
-        existingBook.Genre = book.Genre;
-        existingBook.PublishedDate = book.PublishedDate;
-        existingBook.IsAvailable = book.IsAvailable;
+        if(updateBookDto.Title is not null)
+            existingBook.Title = updateBookDto.Title;
+
+        if(updateBookDto.Author is not null)
+            existingBook.Author = updateBookDto.Author;
+
+        if(updateBookDto.Genre is not null)
+            existingBook.Genre = updateBookDto.Genre;
+
+        if(updateBookDto.Price.HasValue)
+            existingBook.Price = updateBookDto.Price.Value;
+
+        if(updateBookDto.QuantityInStock.HasValue)
+            existingBook.QuantityInStock = updateBookDto.QuantityInStock.Value;
 
         return await Task.FromResult(existingBook);
     }

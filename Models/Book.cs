@@ -6,6 +6,6 @@ public class Book
     public string Title { get; set; } = string.Empty;
     public string Author { get; set; } = string.Empty;
     public string Genre { get; set; } = string.Empty;
-    public DateTime PublishedDate { get; set; }
-    public bool IsAvailable { get; set; } = true;
+    public decimal Price { get; set; } = 0.0m;
+    public int QuantityInStock { get; set; } = 0;    
 }
