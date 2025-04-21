@@ -1,4 +1,4 @@
-
+﻿
 ---
 
 # Library API
@@ -19,7 +19,7 @@ The **Library API** is a RESTful application built with .NET to manage books in 
 - C#  
 - ASP.NET Core  
 - Swagger (for interactive API documentation; users can test endpoints directly)  
-- Scalar (OpenAPI documentation; an alternative to Swagger � user can choose which to use)
+- Scalar (OpenAPI documentation; an alternative to Swagger – user can choose which to use)
 
 ## Endpoints
 
@@ -179,5 +179,12 @@ Feel free to use the one you prefer.
 ## Final Considerations
 
 This project is just an example of a simple API for book management. It can be expanded with new features such as data persistence to a database, authentication and authorization, among others.
+
+---
+
+## Developed by
+
+Made with 💛 by [Camila Isabela](https://www.linkedin.com/in/camila-isabela/)  
+Feel free to connect or reach out!
 
 ---
