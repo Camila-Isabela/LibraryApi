@@ -99,7 +99,7 @@ A **Library API** é uma aplicação RESTful desenvolvida com .NET para gerenciar l
 
 ### 4. `PUT /api/Library/{id}`
 
-**Descrição**: Atualiza as informações de um livro específico. Apenas os campos enviados serão atualizados.
+**Descrição**: Atualiza um livro existente com base no id informado na URL. Apenas os campos enviados no corpo da requisição serão atualizados.
 
 **Body da Requisição**:
 
