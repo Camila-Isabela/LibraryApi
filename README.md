@@ -3,32 +3,31 @@
 
 # Library API
 
-A **Library API** é uma aplicação RESTful desenvolvida com .NET para gerenciar livros em uma biblioteca. A API permite realizar operações de CRUD (Create, Read, Update, Delete) nos livros, utilizando as rotas definidas para cada operação.
+The **Library API** is a RESTful application built with .NET to manage books in a library. The API allows CRUD operations (Create, Read, Update, Delete) on books through defined endpoints.
 
-## Funcionalidades
+## Features
 
-- **Cadastrar um livro**
-- **Listar todos os livros**
-- **Buscar um livro por ID**
-- **Atualizar as informações de um livro**
-- **Deletar um livro**
+- **Add a new book**
+- **List all books**
+- **Retrieve a book by ID**
+- **Update a book's information**
+- **Delete a book**
 
-## Tecnologias Utilizadas
+## Technologies Used
 
-- .NET 9.0 
-- C#
-- ASP.NET Core
-- Swagger (para documentação interativa da API, permitindo que o usuário teste os endpoints diretamente)
-
-- Scalar (documentação da API no formato OpenAPI, podendo ser utilizado como alternativa ao Swagger)
+- .NET 9.0  
+- C#  
+- ASP.NET Core  
+- Swagger (for interactive API documentation; users can test endpoints directly)  
+- Scalar (OpenAPI documentation; an alternative to Swagger – user can choose which to use)
 
 ## Endpoints
 
 ### 1. `GET /api/Library`
 
-**Descrição**: Retorna todos os livros cadastrados na biblioteca.
+**Description**: Returns all books in the library.
 
-**Exemplo de Resposta**:
+**Sample Response**:
 
 ```json
 [
@@ -53,9 +52,9 @@ A **Library API** é uma aplicação RESTful desenvolvida com .NET para gerenciar l
 
 ### 2. `GET /api/Library/{id}`
 
-**Descrição**: Retorna um livro específico pelo seu `id`.
+**Description**: Returns a specific book by its `id`.
 
-**Exemplo de Resposta**:
+**Sample Response**:
 
 ```json
 {
@@ -70,13 +69,13 @@ A **Library API** é uma aplicação RESTful desenvolvida com .NET para gerenciar l
 
 ### 3. `POST /api/Library`
 
-**Descrição**: Cadastra um novo livro na biblioteca.
+**Description**: Adds a new book to the library.
 
-**Body da Requisição**:
+**Request Body**:
 
 ```json
 {
-  "title": "O Senhor dos Anéis",
+  "title": "The Lord of the Rings",
   "author": "J.R.R. Tolkien",
   "genre": "Fantasy",
   "price": 79.90,
@@ -84,12 +83,12 @@ A **Library API** é uma aplicação RESTful desenvolvida com .NET para gerenciar l
 }
 ```
 
-**Exemplo de Resposta**:
+**Sample Response**:
 
 ```json
 {
   "id": 5,
-  "title": "O Senhor dos Anéis",
+  "title": "The Lord of the Rings",
   "author": "J.R.R. Tolkien",
   "genre": "Fantasy",
   "price": 79.90,
@@ -99,13 +98,13 @@ A **Library API** é uma aplicação RESTful desenvolvida com .NET para gerenciar l
 
 ### 4. `PUT /api/Library/{id}`
 
-**Descrição**: Atualiza um livro existente com base no id informado na URL. Apenas os campos enviados no corpo da requisição serão atualizados.
+**Description**: Updates an existing book based on the `id` provided in the URL. Only fields sent in the request body will be updated.
 
-**Body da Requisição**:
+**Request Body**:
 
 ```json
 {
-  "title": "O Hobbit",
+  "title": "The Hobbit",
   "author": "J.R.R. Tolkien",
   "genre": "Fantasy",
   "price": 49.90,
@@ -113,12 +112,12 @@ A **Library API** é uma aplicação RESTful desenvolvida com .NET para gerenciar l
 }
 ```
 
-**Exemplo de Resposta**:
+**Sample Response**:
 
 ```json
 {
   "id": 1,
-  "title": "O Hobbit",
+  "title": "The Hobbit",
   "author": "J.R.R. Tolkien",
   "genre": "Fantasy",
   "price": 49.90,
@@ -128,51 +127,57 @@ A **Library API** é uma aplicação RESTful desenvolvida com .NET para gerenciar l
 
 ### 5. `DELETE /api/Library/{id}`
 
-**Descrição**: Deleta um livro específico pelo seu `id`.
+**Description**: Deletes a book by its `id`.
 
-**Exemplo de Resposta**: `204 No Content`
+**Sample Response**: `204 No Content`
 
 ---
 
-## Como Rodar o Projeto
+## How to Run the Project
 
-### Requisitos
+### Requirements
 
-- .NET 6.0 ou superior
-- IDE como Visual Studio ou Visual Studio Code
+- .NET 6.0 or higher  
+- IDE like Visual Studio or Visual Studio Code
 
-### Passos
+### Steps
 
-1. Clone o repositório.
+1. Clone the repository:
 
 ```bash
-git clone https://github.com/seu-usuario/library-api.git
+git clone https://github.com/your-username/library-api.git
 ```
 
-2. Navegue até o diretório do projeto.
+2. Navigate to the project folder:
 
 ```bash
 cd library-api
 ```
 
-3. Execute o projeto com o comando:
+3. Run the project:
 
 ```bash
 dotnet run
 ```
 
-4. A API estará disponível em `https://localhost:5001` ou `https://localhost:44348` dependendo da configuração.
+4. The API will be available at https://localhost:5001 or another port depending on your configuration.
 
 ---
 
-## Testando com o Swagger
+## Testing with Swagger or Scalar
 
-A API já está configurada com o Swagger para facilitar os testes. Acesse `https://localhost:5001/swagger` ou `https://localhost:44348/swagger` para visualizar a documentação interativa e testar os endpoints diretamente.
+The API comes configured with both **Swagger** and **Scalar** to make testing easy and flexible.  
+You can access the interactive documentation through:
+
+- Swagger: `https://localhost:5001/swagger/index.html`  
+- Scalar: `https://localhost:5001/scalar/v1`
+
+Feel free to use the one you prefer.
 
 ---
 
-## Considerações Finais
+## Final Considerations
 
-Este projeto é apenas um exemplo de uma API simples para gerenciamento de livros. Ele pode ser expandido com novas funcionalidades, como persistência de dados em banco de dados, autenticação e autorização, entre outros.
+This project is just an example of a simple API for book management. It can be expanded with new features such as data persistence to a database, authentication and authorization, among others.
 
 ---
